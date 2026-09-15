@@ -360,3 +360,60 @@ The architecture can be extended to cloud environments such as:
 - AWS
 - Microsoft Azure
 - Google Cloud Platform
+
+# Why This Architecture?
+
+A direct LLM chatbot can generate fluent responses but may not have access to organization-specific information.
+
+RAG introduces a knowledge retrieval layer:
+```text
+Traditional LLM
+
+Question → LLM → Answer
+
+
+RAG
+
+Question
+   ↓
+Knowledge Retrieval
+   ↓
+Relevant Enterprise Context
+   ↓
+LLM
+   ↓
+Grounded Answer
+```
+
+This architecture provides a practical foundation for enterprise knowledge assistants where responses need to be based on controlled organizational information.
+
+# Portfolio Objective
+
+This project demonstrates practical experience designing and implementing a Generative AI application using:
+
+- RAG architecture
+- LLM integration
+- Semantic search
+- Vector databases
+- Embeddings
+- Python
+- FastAPI
+- React
+- API design
+- Containerized deployment
+- Production-oriented engineering practices
+
+# Author
+
+##Amit Dey
+
+Areas of focus:
+
+- Enterprise Application Architecture
+- Backend Engineering
+- Cloud Architecture
+- Microservices
+- Generative AI
+- RAG Systems
+- AI Engineering
+- Technical Leadership
