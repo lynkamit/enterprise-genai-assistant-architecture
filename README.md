@@ -405,7 +405,7 @@ This project demonstrates practical experience designing and implementing a Gene
 
 # Author
 
-**Amit Dey**
+### Amit Dey
 
 Areas of focus:
 
