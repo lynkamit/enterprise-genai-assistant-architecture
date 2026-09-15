@@ -271,15 +271,16 @@ The backend is implemented using FastAPI.
 
 **Example health endpoint:**
 
-GET /health
+>GET /health
 
-Example response:
-
+>Example response:
+```text
 {
   "status": "healthy",
   "service": "enterprise-genai-knowledge-assistant",
   "version": "0.1.0"
 }
+```
 
 **Future API capabilities include:**
 ```text
