@@ -102,6 +102,69 @@ User Question -------------------+
  Source Citations
 
 ```
-# Solution
+# Architecture
 
-The solution implements a Retrieval-Augmented Generation architecture.
+The Enterprise GenAI Knowledge Assistant follows a modular, production-oriented architecture designed to separate the user interface, API layer, retrieval pipeline, vector storage, and LLM inference.
+
+```text
+┌─────────────────────────────────────────────────────────────┐
+│                         User                                │
+│              Natural Language Question                      │
+└───────────────────────────┬─────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│                     React Frontend                          │
+│                                                             │
+│  • Chat Interface                                           │
+│  • Conversation History                                     │
+│  • Source / Citation Display                                │
+└───────────────────────────┬─────────────────────────────────┘
+                            │ REST / JSON
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│                     FastAPI Backend                          │
+│                                                             │
+│  • API Endpoints                                            │
+│  • Request Validation                                       │
+│  • Error Handling                                           │
+│  • Application Services                                     │
+└───────────────────────────┬─────────────────────────────────┘
+                            │
+                            ▼
+┌─────────────────────────────────────────────────────────────┐
+│                       RAG Engine                             │
+│                                                             │
+│  1. Query Processing                                        │
+│  2. Query Embedding                                         │
+│  3. Semantic Retrieval                                      │
+│  4. Context Construction                                    │
+│  5. Prompt Assembly                                         │
+└───────────────┬─────────────────────────────┬───────────────┘
+                │                             │
+                ▼                             ▼
+┌───────────────────────────┐     ┌───────────────────────────┐
+│      Embedding Model      │     │       ChromaDB            │
+│                           │     │                           │
+│ all-MiniLM-L6-v2          │────▶│ Vector Embeddings         │
+│ 384-dimensional vectors  │     │ Document Chunks            │
+└───────────────────────────┘     │ Metadata                  │
+                                  └─────────────┬─────────────┘
+                                                │
+                                                │ Relevant Context
+                                                ▼
+                                  ┌───────────────────────────┐
+                                  │          LLM              │
+                                  │                           │
+                                  │ Context + User Question  │
+                                  │           ↓               │
+                                  │ Grounded Response         │
+                                  └─────────────┬─────────────┘
+                                                │
+                                                ▼
+                                  ┌───────────────────────────┐
+                                  │ Response + Sources        │
+                                  │                           │
+                                  │ Returned to React UI      │
+                                  └───────────────────────────┘
+```
