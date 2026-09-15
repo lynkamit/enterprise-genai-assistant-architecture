@@ -274,7 +274,7 @@ The backend is implemented using FastAPI.
 GET /health
 ```
 
->Example response:
+**Example response:**
 ```text
 {
   "status": "healthy",
