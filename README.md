@@ -146,8 +146,8 @@ The Enterprise GenAI Knowledge Assistant follows a modular, production-oriented 
 ┌───────────────────────────┐     ┌───────────────────────────┐
 │      Embedding Model      │     │       ChromaDB            │
 │                           │     │                           │
-│ all-MiniLM-L6-v2          │────▶│ Vector Embeddings         │
-│ 384-dimensional vectors  │     │ Document Chunks            │
+│ all-MiniLM-L6-v2          │────▶│ Vector Embeddings        │
+│ 384-dimensional vectors   │     │ Document Chunks           │
 └───────────────────────────┘     │ Metadata                  │
                                   └─────────────┬─────────────┘
                                                 │
@@ -264,3 +264,97 @@ The system is designed to support natural-language questions such as:
 >What is the parental leave policy?
 
 The last example demonstrates how the application handles information that is not present in the knowledge base.
+
+# API Architecture
+
+The backend is implemented using FastAPI.
+
+**Example health endpoint:**
+
+GET /health
+
+Example response:
+
+{
+  "status": "healthy",
+  "service": "enterprise-genai-knowledge-assistant",
+  "version": "0.1.0"
+}
+
+**Future API capabilities include:**
+```text
+POST /documents
+POST /search
+POST /chat
+GET  /documents
+GET  /health
+```
+# Engineering Considerations
+
+The project is designed with production-oriented engineering principles in mind.
+
+- Retrieval Quality
+- Section-aware document chunking
+- Semantic embeddings
+- Vector similarity search
+- Configurable retrieval count
+- Reliability
+- Input validation
+- Error handling
+- Health checks
+- Logging
+- Testable service boundaries
+- Scalability
+
+# The architecture separates:
+
+- Document ingestion
+- Embedding generation
+- Vector storage
+- Retrieval
+- LLM orchestration
+- API layer
+- Presentation layer
+
+This allows individual components to evolve independently.
+
+# Security Considerations
+
+A production deployment should include:
+
+- Authentication and authorization
+- Role-based access control
+- Document-level access permissions
+- Secure secret management
+- Encryption in transit
+- Encryption at rest
+- Audit logging
+- PII detection/redaction
+- Prompt-injection protection
+- Retrieval access controls
+
+No credentials, API keys, or production secrets are included in this repository.
+
+# Deployment
+
+The application is designed to support containerized deployment using Docker.
+
+**Target deployment architecture:**
+```text
+                  Load Balancer
+                       |
+              +--------+--------+
+              |                 |
+              v                 v
+         Frontend           FastAPI
+                               |
+                         +-----+-----+
+                         |           |
+                         v           v
+                    Vector DB      LLM
+```
+The architecture can be extended to cloud environments such as:
+
+- AWS
+- Microsoft Azure
+- Google Cloud Platform
