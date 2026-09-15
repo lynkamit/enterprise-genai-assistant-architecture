@@ -270,8 +270,9 @@ The last example demonstrates how the application handles information that is no
 The backend is implemented using FastAPI.
 
 **Example health endpoint:**
-
->GET /health
+```text
+GET /health
+```
 
 >Example response:
 ```text
