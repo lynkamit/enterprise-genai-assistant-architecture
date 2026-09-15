@@ -123,7 +123,7 @@ The Enterprise GenAI Knowledge Assistant follows a modular, production-oriented 
                             │ REST / JSON
                             ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                     FastAPI Backend                          │
+│                     FastAPI Backend                         │
 │                                                             │
 │  • API Endpoints                                            │
 │  • Request Validation                                       │
@@ -133,7 +133,7 @@ The Enterprise GenAI Knowledge Assistant follows a modular, production-oriented 
                             │
                             ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                       RAG Engine                             │
+│                       RAG Engine                            │
 │                                                             │
 │  1. Query Processing                                        │
 │  2. Query Embedding                                         │
@@ -156,7 +156,7 @@ The Enterprise GenAI Knowledge Assistant follows a modular, production-oriented 
                                   ┌───────────────────────────┐
                                   │          LLM              │
                                   │                           │
-                                  │ Context + User Question  │
+                                  │ Context + User Question   │
                                   │           ↓               │
                                   │ Grounded Response         │
                                   └─────────────┬─────────────┘
@@ -168,3 +168,99 @@ The Enterprise GenAI Knowledge Assistant follows a modular, production-oriented 
                                   │ Returned to React UI      │
                                   └───────────────────────────┘
 ```
+# Technology Stack
+```text
+| Layer               | Technology                     |
+| ------------------- | ------------------------------ |
+| Frontend            | React                          |
+| Backend             | Python / FastAPI               |
+| AI                  | Generative AI / LLM            |
+| RAG                 | Retrieval-Augmented Generation |
+| Embeddings          | Sentence Transformers          |
+| Vector Database     | ChromaDB                       |
+| Document Processing | PyPDF                          |
+| API Communication   | REST / JSON                    |
+| Containerization    | Docker                         |
+| Version Control     | Git / GitHub                   |
+```
+
+# Project Structure
+```text
+
+enterprise-genai-knowledge-assistant/
+│
+├── backend/
+│   ├── app/
+│   │   ├── api/
+│   │   ├── embeddings/
+│   │   ├── ingestion/
+│   │   ├── models/
+│   │   ├── rag/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   ├── vectorstore/
+│   │   ├── ingest.py
+│   │   ├── search.py
+│   │   └── main.py
+│   │
+│   ├── tests/
+│   └── requirements.txt
+│
+├── frontend/
+│   └── src/
+│
+├── documents/
+│
+├── docs/
+│
+├── architecture/
+│
+├── tests/
+│
+├── .gitignore
+└── README.md
+```
+
+# Example Knowledge Base
+
+The demonstration knowledge base contains fictional enterprise documentation including:
+
+- Employee Handbook
+- Remote Work Policy
+- Information Security Policy
+- Password Policy
+- Travel Policy
+- Expense Reimbursement
+- Employee Support
+
+The documents are intentionally fictional and contain no confidential company information.
+
+# Example Queries
+
+The system is designed to support natural-language questions such as:
+
+**Remote Work**
+
+>Can employees work from home?
+
+**Paid Time Off**
+
+>How many vacation days do employees get?
+
+**Security**
+
+>Can I share my company password with a coworker?
+
+**Expenses**
+
+>When do I need to submit business expenses?
+
+**Travel**
+
+>Does business travel require approval?
+
+**Unsupported Information**
+
+>What is the parental leave policy?
+
+The last example demonstrates how the application handles information that is not present in the knowledge base.
