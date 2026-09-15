@@ -406,6 +406,7 @@ This project demonstrates practical experience designing and implementing a Gene
 # Author
 
 ### Amit Dey
+Application Development Lead | AI / GenAI Engineering
 
 Areas of focus:
 
