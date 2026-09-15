@@ -102,3 +102,6 @@ User Question -------------------+
  Source Citations
 
 ```
+# Solution
+
+The solution implements a Retrieval-Augmented Generation architecture.
