@@ -918,14 +918,14 @@ The Enterprise GenAI Assistant uses a layered RAG architecture:
 │            AI Orchestration Layer           │
 │              RAG Pipeline                   │
 ├─────────────────────────────────────────────┤
-│              Knowledge Layer                 │
+│              Knowledge Layer                │
 │       Embeddings / Vector Database          │
 ├─────────────────────────────────────────────┤
-│              Generation Layer                │
+│              Generation Layer               │
 │                     LLM                     │
 ├─────────────────────────────────────────────┤
 │          Platform / Infrastructure          │
-│       Docker / Cloud / Kubernetes            │
+│       Docker / Cloud / Kubernetes           │
 └─────────────────────────────────────────────┘
 ```
 The design emphasizes:
